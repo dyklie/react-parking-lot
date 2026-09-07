@@ -3,6 +3,4 @@ export const PARKING_LOT = Array.from({ length: 6 }, (_, index) => ({
   isParked: false,
 }));
 
-export const PARKING_REVENUE = 0;
-
 export const PARKING_SPOT_COST = 20;

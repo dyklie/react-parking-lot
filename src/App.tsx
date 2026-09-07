@@ -1,11 +1,15 @@
 import { useState } from 'react';
 
-import { PARKING_LOT, PARKING_REVENUE, PARKING_SPOT_COST } from './constants';
+import { PARKING_LOT, PARKING_SPOT_COST } from './constants';
+import { calculateInitialRevenue } from './utils';
+
 import styles from './styles.module.css';
 
 const App = () => {
   const [parkingLot, setParkingLot] = useState(PARKING_LOT);
-  const [revenue, setRevenue] = useState(PARKING_REVENUE);
+  const [revenue, setRevenue] = useState(() =>
+    calculateInitialRevenue(parkingLot, PARKING_SPOT_COST),
+  );
 
   const toggleSpot = (id: string, isParked: boolean) => {
     setParkingLot((prev) =>
